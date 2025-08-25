@@ -83,6 +83,7 @@ export default function Page() {
         max-height: 297mm !important;
         overflow: hidden !important;
         padding: 20px !important;
+        margin-top: 0 !important;
       }
       .invoice-a4 * {
         font-size: 13px !important;
@@ -135,6 +136,12 @@ export default function Page() {
       .invoice-a4 .w-12 {
         width: 32px !important;
       }
+      .invoice-a4 .h-14 {
+        height: 36px !important;
+      }
+      .invoice-a4 .w-14 {
+        width: 36px !important;
+      }
       .invoice-a4 .h-20 {
         height: 56px !important;
       }
@@ -144,11 +151,24 @@ export default function Page() {
       .invoice-a4 table {
         border-spacing: 0 !important;
       }
+      .invoice-a4 img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
       .invoice-a4 .flex.flex-col.gap-2 > div {
         margin-bottom: 8px !important;
       }
       .invoice-a4 .text-sm > div {
         margin-bottom: 6px !important;
+      }
+      .invoice-a4 .mb-1 {
+        margin-bottom: 4px !important;
+      }
+      .invoice-a4 .mb-6 {
+        margin-bottom: 16px !important;
+      }
+      .invoice-a4 .gap-4 {
+        gap: 12px !important;
       }
       .invoice-a4 table th,
       .invoice-a4 table td {
@@ -370,12 +390,14 @@ export default function Page() {
         <div className="rounded-2xl border bg-white p-2 sm:p-4">
           <div ref={invoiceRef} className="invoice-a4 mx-auto rounded-xl border bg-white p-5">
             {/* Header */}
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className="grid h-12 w-12 place-items-center rounded-xl bg-blue-600 text-white font-bold">□</div>
+            <div className="flex items-start justify-between mb-6">
+              <div className="flex items-center gap-4">
+               
                 <div>
-                  <div className="text-xs text-blue-700 font-semibold tracking-wide">MOD OUTFIT</div>
-                  <h1 className="text-2xl font-bold leading-5">INVOICE</h1>
+                <div className="grid h-14 w-14 place-items-center rounded-xl text-white font-bold overflow-hidden">
+                  <Image src="/logo.jpeg" alt="Logo" width={48} height={48} className="object-contain" />
+                </div>
+                  <h1 className="text-xl font-bold leading-6">INVOICE</h1>
                 </div>
               </div>
               <div className="text-sm text-gray-600">
