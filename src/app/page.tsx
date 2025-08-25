@@ -665,7 +665,7 @@ export default function Page() {
                 </div>
                 <div className="mt-2 text-sm text-gray-700">
                   Authorized Signature <br />
-                  Shahriar Islam Rohan (Managing Directore)
+                  Shahriar Islam Rohan (Managing Director)
                 </div>
               </div>
               <div className="text-right text-sm text-gray-500">
