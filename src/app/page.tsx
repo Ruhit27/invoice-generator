@@ -17,7 +17,7 @@ const currency = "৳";
 export default function Page() {
   // Left-side form state
   const [date, setDate] = useState<string>(() =>
-    new Date().toISOString().slice(0, 10)
+    new Date().toISOString().slice(0, 10),
   );
   const [invoiceNo, setInvoiceNo] = useState("004");
   const [billToName, setBillToName] = useState("Ruhit");
@@ -39,21 +39,21 @@ export default function Page() {
     () =>
       items.reduce(
         (s, it) => s + (Number(it.price) || 0) * (Number(it.qty) || 0),
-        0
+        0,
       ),
-    [items]
+    [items],
   );
   const vatAmount = useMemo(
     () => (subtotal * (Number(vatPct) || 0)) / 100,
-    [subtotal, vatPct]
+    [subtotal, vatPct],
   );
   const total = useMemo(
     () => subtotal + vatAmount + (Number(courier) || 0),
-    [subtotal, vatAmount, courier]
+    [subtotal, vatAmount, courier],
   );
   const due = useMemo(
     () => Math.max(total - (Number(advance) || 0), 0),
-    [total, advance]
+    [total, advance],
   );
 
   const invoiceRef = useRef<HTMLDivElement>(null);
@@ -66,7 +66,7 @@ export default function Page() {
   };
   const updateItem = (id: string, patch: Partial<Item>) => {
     setItems((prev) =>
-      prev.map((it) => (it.id === id ? { ...it, ...patch } : it))
+      prev.map((it) => (it.id === id ? { ...it, ...patch } : it)),
     );
   };
   const removeItem = (id: string) => {
@@ -74,7 +74,7 @@ export default function Page() {
   };
 
   const onSignatureSelect: React.ChangeEventHandler<HTMLInputElement> = async (
-    e
+    e,
   ) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -251,7 +251,7 @@ export default function Page() {
       <div className="sticky top-0 z-10 border-b bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
-            <Image src="/logo.webp" alt="logo" width={62} height={2} />
+            <Image src="/logo.jpeg" alt="logo" width={62} height={2} />
             <div className="text-sm text-gray-500"> PDF export</div>
           </div>
           <button
@@ -532,7 +532,7 @@ export default function Page() {
               </div>
               <div className="text-sm text-gray-700 md:text-right">
                 <div className="flex items-center justify-start md:justify-end gap-2">
-                  🌐 <span>www.modoutfit.com</span>
+                  🌐 <span>www.jersyempire.com</span>
                 </div>
                 <div className="flex items-center justify-start md:justify-end gap-2">
                   ☎️ <span>01760-367816</span>
@@ -580,7 +580,7 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Payment + Summary */}
+            {/* Payment + Summary
             <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
               <div className="rounded-xl border p-4">
                 <div className="font-semibold">Payment Method</div>
@@ -645,7 +645,7 @@ export default function Page() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Authorized Signature */}
             <div className="mt-10 grid grid-cols-2 items-end">
