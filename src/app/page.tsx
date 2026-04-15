@@ -580,72 +580,44 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Payment + Summary
-            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-              <div className="rounded-xl border p-4">
-                <div className="font-semibold">Payment Method</div>
-                <div className="mt-2 text-sm">
-                  <div>Bank Transfer</div>
-                  <div className="mt-2">
-                    <span className="text-gray-600">Bank Name:</span> Shahjalal
-                    Islami Bank PLC
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Account Name:</span>{" "}
-                    MODOUTFIT LIMITED
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Account Number:</span>{" "}
-                    402311100004287
-                  </div>
-                  <div>
-                    <span className="text-gray-600">Branch:</span> Panthapath,
-                    Dhaka
-                  </div>
-                </div>
-              </div>
-              <div className="rounded-xl border p-4">
-                <div className="flex flex-col gap-3 text-sm">
+            {/* Summary — right-aligned */}
+            <div className="mt-6 flex justify-end">
+              <div className="w-64 rounded-xl border p-4">
+                <div className="flex flex-col gap-2 text-sm">
                   <div className="flex justify-between py-1">
-                    <span>Subtotal</span>
-                    <span>
+                    <span className="text-gray-600">Subtotal</span>
+                    <span className="font-medium">
                       {currency} {subtotal.toFixed(2)}
                     </span>
                   </div>
+                  {(Number(vatPct) || 0) > 0 && (
+                    <div className="flex justify-between py-1">
+                      <span className="text-gray-600">VAT ({(Number(vatPct) || 0).toFixed(2)}%)</span>
+                      <span>{currency} {vatAmount.toFixed(2)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between py-1">
-                    <span>VAT ({(Number(vatPct) || 0).toFixed(2)}%)</span>
-                    <span>
-                      {currency} {vatAmount.toFixed(2)}
-                    </span>
+                    <span className="text-gray-600">Courier Charge</span>
+                    <span>{currency} {Number(courier || 0).toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between py-1">
-                    <span>Courier Charge</span>
-                    <span>
-                      {currency} {Number(courier || 0).toFixed(2)}
-                    </span>
-                  </div>
-                  <hr className="my-3" />
+                  <hr className="my-1" />
                   <div className="flex justify-between font-semibold py-1">
-                    <span>TOTAL</span>
-                    <span>
-                      {currency} {total.toFixed(2)}
-                    </span>
+                    <span>Total</span>
+                    <span>{currency} {total.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between py-1">
-                    <span>Advance</span>
-                    <span>
-                      {currency} {Number(advance || 0).toFixed(2)}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-blue-700 font-semibold text-base py-1">
-                    <span>DUE</span>
-                    <span>
-                      {currency} {due.toFixed(2)}
-                    </span>
+                  {(Number(advance) || 0) > 0 && (
+                    <div className="flex justify-between py-1">
+                      <span className="text-gray-600">Advance</span>
+                      <span>{currency} {Number(advance || 0).toFixed(2)}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-blue-700 font-semibold text-base py-1 border-t pt-2">
+                    <span>Due</span>
+                    <span>{currency} {due.toFixed(2)}</span>
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             {/* Authorized Signature */}
             <div className="mt-10 grid grid-cols-2 items-end">
